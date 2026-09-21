@@ -226,7 +226,7 @@
 <li class="fragment">Programs have their own conventions &amp; formats to read &amp; write files into binary.
 <ul>
 <li class="fragment">The “file extension” is a part of a file name for programs to quickly know the file format.</li>
-<li class="fragment">Your OS (Windows, macOS) helps make this association easier by double click to open with default programs.</li>
+<li class="fragment">Your OS (Windows, macOS) helps makes this association easier by double click to open with default programs.</li>
 <li class="fragment">But file extension is just part of a file name: <mark>you can change or omit it</mark>.</li>
 </ul></li>
 </ul>
@@ -238,7 +238,7 @@
 <ul>
 <li class="fragment">Notepad in Windows, TextEdit in macOS, etc. read plain text files, by convention <code>.txt</code>.</li>
 <li class="fragment">Markdown (.md), HTML (.ht<strong>ml</strong>), etc. are enhanced text files.</li>
-<li class="fragment">Markdown syntax draws from texting/email conventions. See <a href="https://en.wikipedia.org/wiki/Markdown#Examples">Wikipedia</a>.</li>
+<li class="fragment">Markdown syntax draws from texting/email conventions like <code>*</code> for emphasis, <code>&gt;</code> for block quotes. See <a href="https://en.wikipedia.org/wiki/Markdown#Examples">Wikipedia</a>.</li>
 </ul></li>
 </ul>
 </section>
@@ -264,7 +264,7 @@
 <ul>
 <li class="fragment">Global document metadata is stored at the top as YAML.</li>
 <li class="fragment">Markdown blocks are as usual.</li>
-<li class="fragment">Code blocks use three backticks as in <code>.md</code></li>
+<li class="fragment">Code blocks use three backticks as in <code>.md</code>: <br><br> <code>```{r} …… ```</code> produces executable R code block.</li>
 </ul></li>
 </ul>
 </section></section>
@@ -294,35 +294,18 @@
 <h1>Writing in Quarto</h1>
 
 </section>
-<section id="code-blocks-type-this" class="slide level2">
-<h2>Code blocks: type this</h2>
+<section id="code-blocks-what-to-type" class="slide level2">
+<h2>Code blocks: what to type</h2>
 
 <img data-src="assets/quarto-codeblock.png" class="r-stretch"></section>
-<section id="code-blocks-get-this" class="slide level2">
-<h2>Code blocks: get this</h2>
+<section id="code-blocks-result" class="slide level2">
+<h2>Code blocks: result</h2>
+<p>Example of histogram:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="" aria-label="2"></a></span>
-<span id="cb1-3"><a href="" aria-label="3"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span> </span>
-<span id="cb1-4"><a href="" aria-label="4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb1-5"><a href="" aria-label="5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a><span class="fu">hist</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="lesson-5_files/figure-revealjs/fig-airquality-1.png" width="960" class="r-stretch quarto-figure-center" id="fig-airquality"><p class="caption">
-Figure&nbsp;1: Temperature and ozone level.
-</p></section>
-<section id="code-blocks-some-code-chunk-options" class="slide level2">
-<h2>Code blocks: some code chunk options</h2>
-<ul>
-<li class="fragment"><code>echo: false</code> hides code completely</li>
-<li class="fragment"><code>code-fold: true</code> folds code instead</li>
-<li class="fragment"><code>output: false</code> to not display computation output</li>
-<li class="fragment"><code>label:</code> is for cross-referencing/hyperlink</li>
-<li class="fragment"><code>fig-cap:</code> is figure caption</li>
-<li class="fragment"><code>fig-alt</code> is alternative text for screen readers to read description of image</li>
-</ul>
-<p><a href="https://quarto.org/docs/computations/r.html">Quarto computations reference</a></p>
-</section>
+<img data-src="lesson-5_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
 <section id="metadata-yaml" class="slide level2">
 <h2>Metadata (YAML)</h2>
 <p>Sits at the top of your Quarto document and sets global document properties:</p>
@@ -365,21 +348,12 @@ Figure&nbsp;1: Temperature and ozone level.
 <p>See <a href="https://quarto.org/docs/authoring/markdown-basics.html">documentation</a>.</p>
 
 <img data-src="assets/quarto-markdown.png" class="r-stretch quarto-figure-center"><p class="caption">Example of Markdown and what is rendered</p></section>
-<section id="quarto-markdown-div" class="slide level2">
-<h2>Quarto Markdown: div</h2>
-<p>“Div fencing” <code>:::</code> wraps section in HTML divs. You can add custom or Quarto built-in classes to these divs:</p>
-<pre><code>::: {.border}
-This content can be styled with a border
-:::</code></pre>
-</section>
-<section id="quarto-markdown-span" class="slide level2">
-<h2>Quarto Markdown: span</h2>
-<p>Use square brackets around selection to add HTML spans:</p>
-<p><code>[This is some text]{.warning}</code></p>
-</section>
-<section id="quarto-markdown-reference" class="slide level2">
-<h2>Quarto Markdown: reference</h2>
-<p><a href="https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans">https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans</a></p>
+<section id="markdown-special-to-quarto-div" class="slide level2">
+<h2>Markdown special to Quarto: div</h2>
+<p>Divs and spans</p>
+<p><code>:::</code> for “div fencing”</p>
+<p><code>[This is *some text*]{.class key="val"}</code> for spans</p>
+<p>https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans</p>
 </section></section>
 <section>
 <section id="publishing-to-github-pages" class="title-slide slide level1 center">
@@ -392,7 +366,7 @@ This content can be styled with a border
 <img data-src="assets/github-create-account-1.png" class="r-stretch"></section>
 <section id="create-github-account-1" class="slide level2">
 <h2>1. Create GitHub account</h2>
-<p>Choose a username <strong>appropriate</strong> to employers since your free website will be at <code>yourusername.github.io</code>:</p>
+<p>Choose a user name appropriate to employers since your free website will be at <code>yourusername.github.io</code>:</p>
 
 <img data-src="assets/github-create-account-2.png" class="r-stretch"></section>
 <section id="create-github-repo" class="slide level2">
@@ -425,35 +399,8 @@ This content can be styled with a border
 <img data-src="assets/github-website-1.png" class="r-stretch"><p>Your website’s homepage would look even better if you upload a nice webpage named <code>index.html</code>.</p>
 </section>
 <section id="upload-your-project" class="slide level2">
-<h2>4. Upload your project</h2>
-
-<img data-src="assets/github-upload-1.png" class="r-stretch"></section>
-<section id="but-wait-quarto-render-the-html" class="slide level2">
-<h2>4. But wait: Quarto render the HTML</h2>
-<ul>
-<li class="fragment">In your Quarto file YAML, include<br></li>
-</ul>
-<pre><code>format: 
-    html:
-        output-file: "index.html"</code></pre>
-<ul>
-<li class="fragment"><p>Why? <code>index.html</code> ensures a <a href="https://en.wikipedia.org/wiki/Clean_URL">clean URL</a>: a server pointed at a folder automatically reads the <code>index.html</code> of that folder. So your html file adopts your folder’s name.</p></li>
-<li class="fragment"><p>Now render your <code>.qmd</code> in RStudio with “Render” button or in VSCode with <code>quarto render yourfile.qmd</code> in terminal.</p></li>
-</ul>
-</section>
-<section id="upload-your-project-1" class="slide level2">
-<h2>4. Upload your project</h2>
-<p>Take your project folder including the <code>_files</code> folder which contains external dependencies (CSS, JS, etc.) to upload to GitHub:</p>
-
-<img data-src="assets/github-upload-2.png" class="r-stretch"></section>
-<section id="see-your-quarto-webpage" class="slide level2">
-<h2>5. See your Quarto webpage</h2>
-
-<img data-src="assets/github-upload-3.png" class="r-stretch"></section>
-<section id="what-else" class="slide level2">
-<h2>What else?</h2>
-<p>On your free GitHub page: do not put secrets (confidential database, passwords, etc.)</p>
-<p>Push to GitHub faster? Use <strong>GitHub Desktop</strong>. See <a href="https://www.youtube.com/watch?v=M_x2r36WC4s">YouTube tutorial</a>.</p>
+<h2>Upload your project</h2>
+<p>Render your <code>.qmd</code>. Take your project folder including the <code>_files</code> folder which contains external dependencies (CSS, JS, etc.) to upload to GitHub.</p>
 
 </section></section>
     </div>
