@@ -1,0 +1,179 @@
+---
+title: "Lesson 5: Quarto"
+subtitle: "Interative Visualizations"
+format: 
+    revealjs:
+        title-slide-attributes:
+            data-background-color: "aquamarine"
+        incremental: true
+---
+
+## Topics today
+
+- How computers work
+- Running Quarto
+- Writing in Quarto
+- Publishing to GitHub pages
+
+# How Computers Work
+
+(for the casual user)
+
+## How files work: generalities
+
+- Programs store files as strings of binaries (0 & 1).
+- Programs have their own conventions & formats to read & write files into binary.
+  - The "file extension" is a part of a file name for programs to quickly know the file format.
+  - Your OS (Windows, macOS) helps makes this association easier by double click to open with default programs.
+  - But file extension is just part of a file name: <mark>you can change or omit it</mark>.
+
+## How files work: text files
+
+- A common format is plain text for human-readability.
+  - Notepad in Windows, TextEdit in macOS, etc. read plain text files, by convention `.txt`.
+  - Markdown (.md), HTML (.ht**ml**), etc. are enhanced text files.
+  - Markdown syntax draws from texting/email conventions like `*` for emphasis, `>` for block quotes. See [Wikipedia](https://en.wikipedia.org/wiki/Markdown#Examples).
+
+## How files work: notebooks
+
+- Extended comments in code is harder to read.
+- This led to popularity of **computational notebooks**:
+    - Markdown for text explanations
+    - Code snippets for code/simulation/data exploration.
+- **iPython** did this for Python and stored its files as `.ipynb`
+- iPython changed name to **Jupyter** to reflect their support of **Ju**lia, **Pyt**hon, and **R**, but kept the extension name `.ipynb`.
+- Google Colab implements Jupyter notebook in the cloud.
+
+## How files work: Quarto
+- The Quarto program makes publishing notebooks in presentable formats easier.
+- It uses its own enhanced Markdown and stores files as `.qmd`.
+    - Global document metadata is stored at the top as YAML.
+    - Markdown blocks are as usual.
+    - Code blocks use three backticks as in `.md`: <br><br>
+    <code>\`\`\`\{r\} ...... \`\`\`</code> produces executable R code block.
+
+# Running Quarto
+
+## Running Quarto
+- **In RStudio:**
+    - Create or open `.qmd` file
+    - Press "Render" button to see results
+- **In VSCode:**
+    - Create or open `.qmd` file, say "example.qmd"
+    - In terminal run `quarto preview example.qmd` for live-preview; `ctrl+C` or `cmd+C` kills this process.
+    - In terminal run `quarto render example.qmd` to create output files.
+
+# Writing in Quarto
+
+## Code blocks: what to type
+
+![](assets/quarto-codeblock.png)
+
+## Code blocks: result
+
+Example of histogram:
+```{r}
+#| echo: true
+hist(c(1,1,1,2,5,5,6,9,9,2,4,9,7,8,1,9,9,7,8,4,3,2))
+```
+
+## Metadata (YAML)
+
+Sits at the top of your Quarto document and sets global document properties:
+
+![](assets/quarto-yaml.png)
+
+## Output formats
+
+- `format: html` for single webpage
+- `format: dashboard` for data dashboard
+- `format: revealjs` for slides on the web
+- `format: pdf` for printed documents
+- etc.
+- For website (collection of webpages), see [Quarto guide](https://quarto.org/docs/websites/).
+
+## Output formats: html
+
+![Example of a webpage](assets/quarto-html.png)
+
+## Output formats: dashboard
+
+![Example of dashboard code in Quarto](assets/quarto-dashboard-gapminder-code.png)
+
+## Output formats: dashboard
+
+![Example of resulting dashboard](assets/quarto-dashboard-gapminder.png)
+
+## Output formats: dashboard
+
+![Example of customer churn data dashboard](assets/quarto-customer-churn-dashboard.png)
+
+## Output formats guide
+
+Go to [Quarto's guide webpage](https://quarto.org/docs/guide/):
+
+![](assets/quarto-guide.png)
+
+## Markdown
+
+See [documentation](https://quarto.org/docs/authoring/markdown-basics.html).
+
+![Example of Markdown and what is rendered](assets/quarto-markdown.png)
+
+## Markdown special to Quarto: div
+
+Divs and spans 
+
+`:::` for "div fencing"
+
+`[This is *some text*]{.class key="val"}` for spans
+
+https://quarto.org/docs/authoring/markdown-basics.html#sec-divs-and-spans
+
+
+# Publishing to GitHub Pages
+
+## 1. Create GitHub account
+
+![](assets/github-create-account-1.png)
+
+
+## 1. Create GitHub account
+
+Choose a user name appropriate to employers since your free website will be at `yourusername.github.io`:
+
+![](assets/github-create-account-2.png)
+
+## 2. Create GitHub repo
+
+![](assets/github-create-repo-1.png)
+
+## 2. Create GitHub repo
+The free website's repo name must be `yourusername.github.io`
+
+![](assets/github-create-repo-2.png)
+
+## 2. Create GitHub repo
+Turn on "Add README" and hit "Create repository":
+
+![](assets/github-create-repo-3.png)
+
+## 2. Create GitHub repo
+What you should see now:
+
+![](assets/github-create-repo-4.png)
+
+## 3. See your free website
+![](assets/github-website-1.png)
+
+This is just the README.md which you can modify.
+
+## 3. See your free website
+![](assets/github-website-1.png)
+
+Your website's homepage would look even better if you upload a nice webpage named `index.html`.
+
+
+## Upload your project
+
+Render your `.qmd`. Take your project folder including the `_files` folder which contains external dependencies (CSS, JS, etc.) to upload to GitHub.
